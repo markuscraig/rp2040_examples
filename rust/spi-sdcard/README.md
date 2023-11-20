@@ -1,10 +1,21 @@
-# SPI SD-Card Example
+# RP2040 Pico + SPI SD-Card + Debug Probe
 
-This project accesses an sd-card for reading
-and writing over a SPI serial bus.
+This project accesses an SD-card using a SPI serial bus.
 
-The rp2040-template was used as a starting point
-for this project.
+The project runner uses `probe-rs` to flash an RP2040 `pico` board via a `RPI Debug Probe` (CMSIS-DAP probe).
+
+VS-Code and the `Debugger for probe-rs` extension is used to flash the `pico` and debug using breakpoints.
+
+The rp2040-hal-template project was used as a starting point for this project.
+
+# Debug Probe
+
+The `Raspberry Pi Debug Probe` is the CMSIS-DAP probe used by `probe-rs` for this project:
+* https://www.raspberrypi.com/documentation/microcontrollers/debug-probe.html
+
+The probe performs the following functions:
+1. Flashes the built image to the `pico` board
+1. Debugs the running executable with breakpoints
 
 # Requirements
 
@@ -81,3 +92,9 @@ $Env:DEFMT_LOG = trace
 ```cmd
 cargo run
 ```
+
+# Debugging
+
+VS-Code and the `Debugger for probe-rs` extension can be used to flash the image and debug using breakpoints:
+
+![VS-Code probe-rs debugger](docs/vscode_breakpoint.jpg)
